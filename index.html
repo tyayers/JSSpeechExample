@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="styles.css">
+
+<body>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="BingTTSClient.js"></script>
+<script src="BingSpeech.js"></script>
+<script>
+
+var bingClientTTS = new BingTTS.Client("");
+
+client = new BingSpeech.RecognitionClient("", "en-US");
+client.startMicAndContinuousRecognition();
+
+client.onFinalResponseReceived = function (response) {
+  $("#text-display").html(response);
+  bingClientTTS.synthesize("You said: " + response, BingTTS.SupportedLocales.enGB_Female, () => {
+        
+    });    
+}
+client.onError = function (code, requestId) {
+    console.log("<Error with request n°" + requestId + ">");
+}
+client.onVoiceDetected = function () {
+    //speechActivity.classList.remove("hidden");
+}
+client.onVoiceEnded = function () {
+    //speechActivity.classList.add("hidden");
+}
+client.onNetworkActivityStarted = function () {
+    //networkActivity.classList.remove("hidden");
+}
+client.onNetworkActivityEnded = function () {
+    //networkActivity.classList.add("hidden");
+}
+
+</script>
+
+<div id="popup1" class="overlay">
+	<div class="popup">
+		<h2>Here i am</h2>
+		<a class="close" href="#">&times;</a>
+		<div id="popup-content" class="content">
+			Thank to pop me out of that button, but now i'm done so you can close this window.
+		</div>
+	</div>
+</div>
+
+<div id="text-display" style="position: fixed; left: 0px; bottom: 0px; font-size: 16px; color:whitesmoke; font-size: 78px;">
+
+</div>
+
+</body>
