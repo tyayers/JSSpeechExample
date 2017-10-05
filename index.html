@@ -10,9 +10,9 @@
 <script src="BingSpeech.js"></script>
 <script>
 
-var bingClientTTS = new BingTTS.Client("");
+var bingClientTTS = new BingTTS.Client("YOUR_BING_SPEECH_API_KEY_HERE");
 
-client = new BingSpeech.RecognitionClient("", "en-US");
+client = new BingSpeech.RecognitionClient("YOUR_BING_SPEECH_API_KEY_HERE", "en-US");
 client.startMicAndContinuousRecognition();
 
 client.onFinalResponseReceived = function (response) {
