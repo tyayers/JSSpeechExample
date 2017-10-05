@@ -6,4 +6,4 @@ To use, first replace the string ADD_BING_SPEECH_KEY_HERE in index.html with you
 
 After adding your Bing Speech API key, then deploy the files as static html content.  The page should request to use your microphone upon loading, and after that repeat everything you say as text in the web page, and through TextToSpeech.  English only in this demo, but you can change the language in the index.html code.
 
-![screenshot](JSSpeechExample/screenshot.PNG)
+![screenshot](https://github.com/tyayers/JSSpeechExample/blob/master/screenshot.PNG)
